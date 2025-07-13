@@ -1,0 +1,20 @@
+aws:
+  region: us-east-1
+  access_key_id: ${AWS_ACCESS_KEY_ID}        # Use .env or IAM role
+  secret_access_key: ${AWS_SECRET_ACCESS_KEY}
+
+s3:
+  bucket_name: my-s3-bucket-name
+  prefix: raw-data/2025/                      # Optional folder path inside bucket
+  file_types: [".csv", ".json", ".parquet"]   # Filter by file extensions
+  recursive: true                             # Set to false for flat listing
+  sync_mode: true                             # Only download if file doesn't exist locally
+
+download:
+  destination_folder: ./downloads             # Local path to save files
+  overwrite_existing: false                   # Avoid re-downloading files
+
+logging:
+  level: INFO                                 # Options: DEBUG, INFO, WARNING, ERROR
+  log_to_file: true
+  log_file_path: logs/download.log
