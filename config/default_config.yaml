@@ -7,7 +7,7 @@ s3:
 
 # Sync Mode
 sync:
-  loc_download: ./downloads                   # Hint: Local folder where files will be saved. Will be created if it doesn't exist.
+  loc_download: downloads                   # Hint: Local folder where files will be saved. Will be created if it doesn't exist.
   mode: incremental                           # Hint: Options are:
                                               #   - full_refresh: Download everything
                                               #   - incremental: Download only new/updated files
@@ -16,12 +16,9 @@ sync:
 # File Filters
 filters:
   include_extensions:                         # Hint: List file extensions to download (leave empty to allow all)
-    - .csv
+    - .mp4
     - .xlsx
   exclude_files:                              # Hint: Optional list of exact filenames to skip
     - skip_this_file.csv
 
-# Logging
-logging:
-  enable: true                                # Hint: Set to true to enable log messages
-  log_file: s3_download.log                   # Hint: Path to log file (if logging is enabled)
+

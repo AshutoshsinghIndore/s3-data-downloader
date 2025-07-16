@@ -1,6 +1,8 @@
 # Ignore configuration files
 *.env
 
+# Ignore Download folder
+downloads
 
 # Logs and debug
 *.log
