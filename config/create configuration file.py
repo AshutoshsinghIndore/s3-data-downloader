@@ -1,9 +1,9 @@
-import os
 import logging
 from pathlib import Path
+from typing import Union
 
 # Default YAML content
-YAML_CONTENT = """
+YAML_CONTENT = """\
 aws:
   region: us-east-1
   access_key_id: YOUR_ACCESS_KEY_ID
@@ -28,56 +28,42 @@ logging:
   log_file_path: logs/download.log
 """
 
+
 def setup_logger(name: str = "config_writer", level: str = "INFO") -> logging.Logger:
-    """
-    Sets up a logger for the module.
-
-    Args:
-        name (str): Logger name.
-        level (str): Logging level.
-
-    Returns:
-        logging.Logger: Configured logger instance.
-    """
     logger = logging.getLogger(name)
-    logger.setLevel(getattr(logging, level.upper(), logging.INFO))
-
     if not logger.handlers:
-        console_handler = logging.StreamHandler()
-        console_handler.setFormatter(logging.Formatter('[%(levelname)s] %(message)s'))
-        logger.addHandler(console_handler)
-
+        logger.setLevel(getattr(logging, level.upper(), logging.INFO))
+        handler = logging.StreamHandler()
+        formatter = logging.Formatter('[%(levelname)s] %(message)s')
+        handler.setFormatter(formatter)
+        logger.addHandler(handler)
     return logger
 
 
-def create_yaml_file(path: Union[str, Path] = 'config/default_config.yaml', content: str = YAML_CONTENT) -> None:
-    """
-    Creates a YAML configuration file at the specified path.
-
-    Args:
-        path (str or Path): Destination path for the YAML file.
-        content (str): YAML string to write.
-    """
+def create_yaml_file(
+    path: Union[str, Path] = "default_config.yaml",
+    content: str = YAML_CONTENT
+) -> None:
     logger = setup_logger()
+    output_path = Path.cwd() / Path(path)
 
     try:
-        path = Path(path)
-        path.parent.mkdir(parents=True, exist_ok=True)
+        output_path.parent.mkdir(parents=True, exist_ok=True)
 
-        if path.exists():
-            logger.warning(f"File already exists at: {path}")
+        if output_path.exists():
+            logger.warning(f"File already exists: {output_path}")
         else:
-            logger.info(f"Creating YAML config at: {path}")
+            logger.info(f"Creating YAML file: {output_path}")
 
-        with path.open('w', encoding='utf-8') as f:
-            f.write(content)
+        with output_path.open(mode='w', encoding='utf-8') as file:
+            file.write(content)
 
-        logger.info("YAML config file created successfully.")
+        logger.info("YAML configuration file created successfully.")
 
     except Exception as e:
-        logger.error(f"Failed to create YAML file: {e}")
+        logger.error(f"Error writing YAML file: {e}")
         raise
 
 
-if __name__ == '__main__':
-    create_yaml_file()
+# Always execute on import or run
+create_yaml_file()

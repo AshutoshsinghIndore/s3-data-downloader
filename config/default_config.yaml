@@ -1,0 +1,27 @@
+# S3 Configuration
+s3:
+  prod-completed:                                   # Example: healthcare-data-bucket
+    - 2025-05-30/                            # Hint: Ensure prefixes end with '/'
+    - 2025-03-01/                            # Hint: Optional. Use to limit downloads to a specific folder in the bucket.
+                   
+
+# Sync Mode
+sync:
+  loc_download: ./downloads                   # Hint: Local folder where files will be saved. Will be created if it doesn't exist.
+  mode: incremental                           # Hint: Options are:
+                                              #   - full_refresh: Download everything
+                                              #   - incremental: Download only new/updated files
+                                              #   - mirror: Sync to match remote (delete extras locally)
+
+# File Filters
+filters:
+  include_extensions:                         # Hint: List file extensions to download (leave empty to allow all)
+    - .csv
+    - .xlsx
+  exclude_files:                              # Hint: Optional list of exact filenames to skip
+    - skip_this_file.csv
+
+# Logging
+logging:
+  enable: true                                # Hint: Set to true to enable log messages
+  log_file: s3_download.log                   # Hint: Path to log file (if logging is enabled)
