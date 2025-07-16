@@ -7,7 +7,7 @@ s3:
 
 # Sync Mode
 sync:
-  loc_download: downloads                   # Hint: Local folder where files will be saved. Will be created if it doesn't exist.
+  loc_download: ../downloads                   # Hint: Local folder where files will be saved. Will be created if it doesn't exist.
   mode: incremental                           # Hint: Options are:
                                               #   - full_refresh: Download everything
                                               #   - incremental: Download only new/updated files

@@ -20,7 +20,7 @@ sys.path.append('src')
 
 from s3_manager import S3_Downloader
 from config_loader import read_yaml_file
-
+from file_utils import file_utils
 
 def main():
     """Main execution flow for downloading S3 files based on configuration."""
@@ -69,8 +69,7 @@ def main():
     # --- Step 8: Execute download ---
     S3_Downloader.execute_download(
         client=client_obj,
-        object_df=s3_obj_list,
-        loc_save_files=download_path
+        obj_list=s3_obj_list,
     )
     print("✅ Download process completed.")
 
