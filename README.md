@@ -120,27 +120,32 @@ pip install -r requirements.txt
 # Run the ETL pipeline
 python s3_downloader_pipeline.py
 ```
+---
 
 ##🧪 Future Enhancements
- Airflow / Prefect integration <br>
+- Airflow / Prefect integration 
 
- Scheduling via GitHub Actions or cron <br>
+- Scheduling via GitHub Actions or cron 
 
- File validation module (schema + data profiling) <br>
+- File validation module (schema + data profiling) 
 
- Support for other cloud providers (GCS, Azure) <br>
+- Support for other cloud providers (GCS, Azure) 
+
+---
 
 ##🧑💼 Ideal For
-Data Analysts automating data ingestion from s3 cloud <br>
+- Data Analysts automating data ingestion from s3 cloud
 
-Data Engineers building ETL pipelines <br>
+- Data Engineers building ETL pipelines
 
-BI Developers feeding cloud data into dashboards <br>
+- BI Developers feeding cloud data into dashboards 
 
-Healthcare & GovTech projects requiring audit-ready downloads <br>
+- Healthcare & GovTech projects requiring audit-ready downloads 
+
+---
 
 ##📬 Contact
-Ashutosh Singh <br>
-📧 ashutoshsinghindore@gmail.com <br>
-🔗 Linkedin: https://linkedin.com/in/ashutoshsinghindore <br>
-🐙 GitHub: https://github.com/AshutoshsinghIndore <br>
+Ashutosh Singh 
+📧 ashutoshsinghindore@gmail.com 
+🔗 Linkedin: https://linkedin.com/in/ashutoshsinghindore
+🐙 GitHub: https://github.com/AshutoshsinghIndore 
