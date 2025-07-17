@@ -45,7 +45,7 @@ Companies often need to automate and monitor recurring data pulls from cloud sto
 ---
 
 ## 📁 Project Structure
-
+```
 Cloud-ETL-S3-Pipeline/
 ├── config/
 │ ├── config.env # 🔐 AWS credentials (use with dotenv)
@@ -64,12 +64,12 @@ Cloud-ETL-S3-Pipeline/
 ├── requirements.txt # 📦 Project dependencies
 ├── README.md # 📘 This file
 └── .gitignore # 🚫 Ignore credentials, downloads, cache
-
+```
 ---
 
 ## ⚙️ How It Works
 
-1. ✅ **Load credentials** from `.env`
+1. ✅ **Load credentials** from `src/config.env`
 2. 📑 **Read config** from `default_config.yaml`
 3. 🔐 **Connect securely** to AWS S3 via Boto3
 4. 📦 **List & filter objects** (by extension, name, timestamp)
@@ -109,8 +109,9 @@ filters:
     - .xlsx
   exclude_files:                 # Skip these exact filenames (optional)
     - skip_this_file.csv
-```yaml
-  
+```
+
+```bash
 # Install requirements
 pip install -r requirements.txt
 
@@ -127,8 +128,8 @@ python s3_downloader_pipeline.py
 
  Support for other cloud providers (GCS, Azure)
 
-🧑‍💼 Ideal For
-Data Analysts automating data ingestion
+🧑💼 Ideal For
+Data Analysts automating data ingestion from s3 cloud
 
 Data Engineers building ETL pipelines
 
