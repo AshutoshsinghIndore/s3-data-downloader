@@ -101,7 +101,6 @@ sync:
   mode: incremental              # Options:
                                  #   - full_refresh: Download all files
                                  #   - incremental: Only new/updated files
-                                 #   - mirror: Match S3 exactly (delete local extras)
   threads: 8                     # Number of parallel download threads (default: 12)
 
 # 🎯 File Filters
