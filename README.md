@@ -122,30 +122,21 @@ python s3_downloader_pipeline.py
 ```
 ---
 
-##🧪 Future Enhancements
+🧪 Future Enhancements
 - Airflow / Prefect integration 
-
 - Scheduling via GitHub Actions or cron 
-
 - File validation module (schema + data profiling) 
-
 - Support for other cloud providers (GCS, Azure) 
 
----
 
-##🧑💼 Ideal For
+🧑💼 Ideal For
 - Data Analysts automating data ingestion from s3 cloud
-
 - Data Engineers building ETL pipelines
-
 - BI Developers feeding cloud data into dashboards 
+- Healthcare & GovTech projects requiring audit-ready downloads
 
-- Healthcare & GovTech projects requiring audit-ready downloads 
-
----
-
-##📬 Contact
+📬 Contact
 Ashutosh Singh 
-📧 ashutoshsinghindore@gmail.com 
-🔗 Linkedin: https://linkedin.com/in/ashutoshsinghindore
-🐙 GitHub: https://github.com/AshutoshsinghIndore 
+📧 ashutoshsinghindore@gmail.com<br>
+🔗 Linkedin: https://linkedin.com/in/ashutoshsinghindore<br>
+🐙 GitHub: https://github.com/AshutoshsinghIndore<br>
