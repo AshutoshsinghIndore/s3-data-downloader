@@ -1,24 +1,30 @@
-# S3 Configuration
+# ===============================================================
+# 🌐 S3 Cloud ETL Pipeline Configuration File
+# ---------------------------------------------------------------
+# Define your S3 source, sync behavior, and download filters here.
+# Compatible with: s3_downloader_pipeline.py
+# Author: Ashutosh Singh
+# ===============================================================
+
+# 📦 S3 Configuration
 s3:
-  prod-completed:                                   # Example: healthcare-data-bucket
-    - 2025-05-30/                            # Hint: Ensure prefixes end with '/'
-    - 2025-03-01/                            # Hint: Optional. Use to limit downloads to a specific folder in the bucket.
-                   
+  prod-completed:                # (REQUIRED) S3 bucket name (e.g., healthcare-data-bucket)
+    - 2025-05-30/                # Prefix/folder inside bucket. Must end with '/'.
+    - 2025-03-01/                # Add more prefixes as needed.
 
-# Sync Mode
+# 🔄 Sync Mode Configuration
 sync:
-  loc_download: ../downloads                   # Hint: Local folder where files will be saved. Will be created if it doesn't exist.
-  mode: incremental                           # Hint: Options are:
-                                              #   - full_refresh: Download everything
-                                              #   - incremental: Download only new/updated files
-                                              #   - mirror: Sync to match remote (delete extras locally)
+  loc_download: ../downloads     # (REQUIRED) Local directory to save downloaded files.
+  mode: incremental              # Options:
+                                 #   - full_refresh: Download all files
+                                 #   - incremental: Only new/updated files
+                                 #   - mirror: Match S3 exactly (delete local extras)
+  threads: 8                     # Number of parallel download threads (default: 12)
 
-# File Filters
+# 🎯 File Filters
 filters:
-  include_extensions:                         # Hint: List file extensions to download (leave empty to allow all)
+  include_extensions:            # Only download files with these extensions
     - .mp4
     - .xlsx
-  exclude_files:                              # Hint: Optional list of exact filenames to skip
+  exclude_files:                 # Skip these exact filenames (optional)
     - skip_this_file.csv
-
-

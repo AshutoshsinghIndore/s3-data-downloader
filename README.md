@@ -46,16 +46,24 @@ Companies often need to automate and monitor recurring data pulls from cloud sto
 
 ## 📁 Project Structure
 
-.
-├── src/
-│ ├── config_loader.py # Loads YAML config
-│ ├── file_utils.py # File system helpers, sync state
-│ ├── s3_manager.py # S3 logic (connect, list, download)
+Cloud-ETL-S3-Pipeline/
 ├── config/
-│ ├── default_config.yaml # Bucket/prefix/filter settings
-│ ├── config.env # AWS credentials
-├── s3_downloader_pipeline.py # Main runner script
-└── README.md
+│ ├── config.env # 🔐 AWS credentials (use with dotenv)
+│ └── default_config.yaml # ⚙️ YAML-based S3 bucket and sync settings
+│ └── config.env.txt # Dummy config.env file
+│
+├── downloads/ # 📁 Local download directory (auto-created)
+│ └── sync_state.parquet # 🧠 Parquet file to track incremental syncs
+│
+├── src/ # 🧠 Core logic modules
+│ ├── config_loader.py # 🗂️ Reads and parses YAML config
+│ ├── file_utils.py # 📄 File discovery, sync-state writing
+│ └── s3_manager.py # ☁️ S3 connection, filtering, multi-threaded download
+│
+├── s3_downloader_pipeline.py # 🚀 Main entry script to execute pipeline
+├── requirements.txt # 📦 Project dependencies
+├── README.md # 📘 This file
+└── .gitignore # 🚫 Ignore credentials, downloads, cache
 
 ---
 
@@ -79,31 +87,36 @@ AWS_REGION=ap-south-1
 
 ### `default_config.yaml`
 ```yaml
+# 📦 S3 Configuration
 s3:
-  your-bucket-name:
-    - logs/
-    - uploads/
+  prod-completed:                # (REQUIRED) S3 bucket name (e.g., healthcare-data-bucket)
+    - 2025-05-30/                # Prefix/folder inside bucket. Must end with '/'.
+    - 2025-03-01/                # Add more prefixes as needed.
 
-filters:
-  include_extensions: ['.csv', '.json']
-  exclude_files: ['ignore_this.csv']
-
+# 🔄 Sync Mode Configuration
 sync:
-  loc_download: ./downloads
-  mode: incremental  # or full_refresh
+  loc_download: ../downloads     # (REQUIRED) Local directory to save downloaded files.
+  mode: incremental              # Options:
+                                 #   - full_refresh: Download all files
+                                 #   - incremental: Only new/updated files
+                                 #   - mirror: Match S3 exactly (delete local extras)
+  threads: 8                     # Number of parallel download threads (default: 12)
+
+# 🎯 File Filters
+filters:
+  include_extensions:            # Only download files with these extensions
+    - .mp4
+    - .xlsx
+  exclude_files:                 # Skip these exact filenames (optional)
+    - skip_this_file.csv
+```yaml
   
-  # Install requirements
+# Install requirements
 pip install -r requirements.txt
 
 # Run the ETL pipeline
 python s3_downloader_pipeline.py
 
-📈 Example Output
-Files downloaded to: /downloads
-
-Metadata tracked in: /downloads/sync_state.parquet
-
-Dashboard-ready format: .csv, .json, .parquet
 
 🧪 Future Enhancements
  Airflow / Prefect integration
@@ -126,5 +139,5 @@ Healthcare & GovTech projects requiring audit-ready downloads
 📬 Contact
 Ashutosh Singh
 📧 ashutoshsinghindore@gmail.com
-🔗 LinkedIn
-🐙 GitHub
+🔗 Linkedin: https://linkedin.com/in/ashutoshsinghindore
+🐙 GitHub: https://github.com/AshutoshsinghIndore
