@@ -81,9 +81,11 @@ Cloud-ETL-S3-Pipeline/
 ## 📄 Configuration Examples
 
 ### `config.env`
+```yaml
 AWS_ACCESS_KEY_ID=AKIxxxxxxxxxxxx
 AWS_SECRET_ACCESS_KEY=xxxxxxx
 AWS_REGION=ap-south-1
+```
 
 ### `default_config.yaml`
 ```yaml
