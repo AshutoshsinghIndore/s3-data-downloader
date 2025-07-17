@@ -138,3 +138,7 @@ python s3_downloader_pipeline.py
 📧 [ashutoshsinghindore@gmail.com](mailto:ashutoshsinghindore@gmail.com)  
 🔗 [LinkedIn](https://linkedin.com/in/ashutoshsinghindore)  
 🐙 [GitHub](https://github.com/AshutoshsinghIndore)
+
+---
+
+> “A data pipeline isn’t just about moving files — it’s about delivering trust, one object at a time.”
