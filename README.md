@@ -1,9 +1,9 @@
 # ☁️ Cloud S3 ETL Pipeline: YAML-Driven Sync & Download Framework
 
-![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
 ![Python](https://img.shields.io/badge/python-3.9+-blue)
 ![AWS S3](https://img.shields.io/badge/AWS-S3-orange)
 ![Power BI Ready](https://img.shields.io/badge/PowerBI-ready-yellowgreen)
+![ETL](https://img.shields.io/badge/ETL-Cloud%20Pipeline-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
 > 🔄 A production-grade, YAML-configurable pipeline to automate secure downloads from AWS S3 using Python, with sync tracking for incremental updates and integration-ready outputs for tools like Power BI, Pandas, or SQL engines.
@@ -119,9 +119,9 @@ pip install -r requirements.txt
 
 # Run the ETL pipeline
 python s3_downloader_pipeline.py
+```
 
-
-🧪 Future Enhancements
+# 🧪 Future Enhancements
  Airflow / Prefect integration
 
  Scheduling via GitHub Actions or cron
@@ -130,7 +130,7 @@ python s3_downloader_pipeline.py
 
  Support for other cloud providers (GCS, Azure)
 
-🧑💼 Ideal For
+# 🧑💼 Ideal For
 Data Analysts automating data ingestion from s3 cloud
 
 Data Engineers building ETL pipelines
@@ -139,7 +139,7 @@ BI Developers feeding cloud data into dashboards
 
 Healthcare & GovTech projects requiring audit-ready downloads
 
-📬 Contact
+# 📬 Contact
 Ashutosh Singh
 📧 ashutoshsinghindore@gmail.com
 🔗 Linkedin: https://linkedin.com/in/ashutoshsinghindore
